@@ -13,7 +13,6 @@ def print_footer(students)
   print "Overall, we have #{students.length} great students \n"
 end
 
-
 def input_students
   print "Please enter the names of the students \n"
   print "To finish, just hit return twice \n"
