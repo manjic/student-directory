@@ -38,8 +38,10 @@ def list_by_cohort(students)
 end
 
 def print_footer(students)
-  puts ''
-  puts "Overall, we have #{students.length} great students".center(40)
+  if students.length == 1 
+    puts "Overall, we have #{students.length} great student".center(200)
+  else puts "Overall, we have #{students.length} great students".center(200)
+end
 end
 
 def input_students
