@@ -1,45 +1,44 @@
 def print_header
-  print "The students of my cohort at Makers Academy \n"
-  print "------------- \n"
+  print "The students of my cohort at Makers Academy \n".center(40)
+  print "------------- \n".center(40)
 end
 
 def print_students(students)
   i = 0
   while i < students.length
     student = students[i]
-    print "#{student[:name]} (#{student[:cohort]} cohort) #{student[:hobbies]} #{student[:height]} \n" 
+    print "#{student[:name]} (#{student[:cohort]} cohort) #{student[:hobbies]} #{student[:height]} \n".center(40) 
     i += 1
   end
 end
 
 def print_footer(students)
-  print "Overall, we have #{students.length} great students \n"
+  puts ''
+  print "Overall, we have #{students.length} great students \n".center(40)
 end
 
 def input_students
-  print "Please enter the names of the students \n"
-  print "To finish, just hit return twice \n"
+  puts "Please enter the names of the students".center(40)
+  puts "To finish, just hit return twice".center(40)
   # create an empty array
   students = []
     name = gets.chomp
-    puts "Tell us a hobby"
-    hobbies = gets.chomp
-    puts "How tall are you?"
-    height = gets.chomp
       while !name.empty? do
        # add the student hash to the array
-       students << {:name => name, :cohort => :february, :hobbies=> hobbies, :height => height}
-       print "Now we have #{students.length} students \n"
+      puts "Which cohort?".center(40)
+      cohort = gets.chomp
+      cohort + "Default" if cohort.empty?
+      puts "Tell us a hobby".center(40)
+      hobbies = gets.chomp
+      puts "How tall are you?".center(40)
+      height = gets.chomp
+       if cohort.empty?
+        cohort = "Unknown cohort"
+       end
+      students << {:name => name.to_sym, :cohort => cohort.to_sym, :hobbies=> hobbies.to_sym, :height => height.to_sym}
+      puts "Now we have #{students.length} students".center(40)
        # get amother name from the user
-       name = gets.chomp
-        if name.empty?
-          puts "Thanks for the info"
-        else   
-          puts "Tell us a hobby"
-          hobbies = gets.chomp
-          puts "How tall are you?"
-          height = gets.chomp
-        end
+      name = gets.chomp
       end
   #return the array of students
   students
@@ -48,5 +47,5 @@ end
 
 students = input_students
 print_header
-# print_students(students)
+print_students(students)
 print_footer(students)
