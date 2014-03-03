@@ -1,11 +1,12 @@
+
 def print_header
   print "The students of my cohort at Makers Academy \n"
-  print "------------- \n"
+  puts "------------- \n"
 end
 
 def print_students(students)
-  students.each_with_index do |student, index|
-    print "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort) \n"
+  students.each do |student|
+    puts "#{student[:name]} (#{student[:cohort]} cohort) \n"  if  "#{student[:name]}" [0]  == "A"
   end
 end
 
@@ -32,7 +33,6 @@ def input_students
   #return the array of students
   students
 end
-
 
 students = input_students
 print_header
