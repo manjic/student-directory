@@ -49,16 +49,16 @@ def input_students
   puts "To finish, just hit return twice".center(40)
   # create an empty array
   students = []
-    name = gets.chomp
+    name = gets.strip
       while !name.empty? do
        # add the student hash to the array
       puts "Which cohort?".center(40)
-      cohort = gets.chomp
+      cohort = gets.strip
       cohort + "Default" if cohort.empty?
       puts "Tell us a hobby".center(40)
-      hobbies = gets.chomp
+      hobbies = gets.strip
       puts "How tall are you?".center(40)
-      height = gets.chomp
+      height = gets.strip
        if cohort.empty?
         cohort = "Unknown cohort"
        end
@@ -66,7 +66,7 @@ def input_students
       puts "Now we have #{students.length} students".center(40)
       # typo
        # get amother name from the user
-      name = gets.chomp
+      name = gets.strip
       end
   #return the array of students
   typo(students)
@@ -82,6 +82,9 @@ def typo(students)
 end
  
 students = input_students
+if students.length > 0
 print_header
 list_by_cohort(students)
 print_footer(students)
+else puts "No data yet"
+end
