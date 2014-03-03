@@ -29,8 +29,8 @@ def get_month(month)
     :december => 12
   }[month] || 0
 end
+
 def list_by_cohort(students)
-  
   students.sort_by do |student|
     get_month student[:cohort]
   end
@@ -39,9 +39,9 @@ end
 
 def print_footer(students)
   if students.length == 1 
-    puts "Overall, we have #{students.length} great student".center(200)
-  else puts "Overall, we have #{students.length} great students".center(200)
-end
+    puts "Overall, we have #{students.length} great student".center(40)
+  else puts "Overall, we have #{students.length} great students".center(40)
+  end
 end
 
 def input_students
@@ -80,6 +80,32 @@ def typo(students)
     students  
   end
 end
+
+def interactive_menu
+  students =[]
+  loop do
+    # print the menu and ask the user what to do
+    puts "1. Input the students"
+    puts "2. Show the students"
+    puts "9. Exit"
+    # read the input and ask the user what to do
+    selection = gets.chomp
+    # do what the user has asked
+    case selection
+    when "1"
+      students = input_students
+    when "2"
+      print_header
+      print(students)
+      print_footer(students)
+    when "9"
+      exit
+    else
+       puts "I don't know what you meant. try again"
+    end
+  end
+end
+
  
 students = input_students
 if students.length > 0
