@@ -4,14 +4,18 @@ def print_header
 end
 
 def print_students(students)
-  students.each do |student|
-    print "#{student[:name]} (#{student[:cohort]} cohort) \n" if  "#{student[:name]}".length < 12
+  i = 0
+  while i < students.length
+    student = students[i]
+    print "#{student[:name]} (#{student[:cohort]} cohort) \n" 
+    i += 1
   end
 end
 
 def print_footer(students)
   print "Overall, we have #{students.length} great students \n"
 end
+
 
 def input_students
   print "Please enter the names of the students \n"
