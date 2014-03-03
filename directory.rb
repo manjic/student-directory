@@ -1,20 +1,20 @@
 def print_header
-  print "The students of my cohort at Makers Academy \n".center(40)
-  print "------------- \n".center(40)
+  puts "The students of my cohort at Makers Academy".center(40)
+  puts "-------------".center(40)
 end
 
 def print_students(students)
   i = 0
   while i < students.length
     student = students[i]
-    print "#{student[:name]} (#{student[:cohort]} cohort) #{student[:hobbies]} #{student[:height]} \n".center(40) 
+    puts "#{student[:name]} #{student[:cohort]} #{student[:hobbies]} #{student[:height]}".center(40)
     i += 1
   end
 end
 
 def print_footer(students)
   puts ''
-  print "Overall, we have #{students.length} great students \n".center(40)
+  puts "Overall, we have #{students.length} great students".center(40)
 end
 
 def input_students
@@ -37,12 +37,27 @@ def input_students
        end
       students << {:name => name.to_sym, :cohort => cohort.to_sym, :hobbies=> hobbies.to_sym, :height => height.to_sym}
       puts "Now we have #{students.length} students".center(40)
+      # typo
        # get amother name from the user
       name = gets.chomp
       end
   #return the array of students
-  students
+  typo(students)
 end
+
+
+def typo(students)
+  puts "If this is correct press yes, or press no to restart".center(40)
+  if gets.chomp == "no" 
+    students = input_students
+  else
+    students  
+  end
+end
+  
+
+
+
 
 
 students = input_students
