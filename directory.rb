@@ -33,6 +33,7 @@ def input_students
   students
 end
 
+
 students = input_students
 print_header
 print_students(students)
