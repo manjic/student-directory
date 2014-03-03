@@ -1,12 +1,11 @@
-
 def print_header
   print "The students of my cohort at Makers Academy \n"
-  puts "------------- \n"
+  print "------------- \n"
 end
 
 def print_students(students)
   students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort) \n"  if  "#{student[:name]}" [0]  == "A"
+    print "#{student[:name]} (#{student[:cohort]} cohort) \n" if  "#{student[:name]}".length < 12
   end
 end
 
