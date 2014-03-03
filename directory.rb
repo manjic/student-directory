@@ -37,8 +37,6 @@ def list_by_cohort(students)
   print_students(students)
 end
 
-
-
 def print_footer(students)
   puts ''
   puts "Overall, we have #{students.length} great students".center(40)
